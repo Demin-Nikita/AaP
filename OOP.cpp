@@ -3,37 +3,15 @@
 #include "Triangle.h"
 
 
-bool isPointInCircle(double r, const Point& p) {
-    return r >= sqrt(p.getX() * p.getX() + p.getY() * p.getY());
-}
+bool isPointInCircle(double r, const Point& p);
 
+Point input(std::istream& s);
 
-Point input(std::istream& s) {
-    double x, y;
-    s >> x;
-    s >> y;
-    Point p(x, y);
-    return p;
-}
+void output(std::ostream& s, const Point& p);
 
+void triangleOutput(std::ostream& s, Triangle& t);
 
-void output(std::ostream& s, const Point& p) {
-    s << "(" << p.getX() << "; " << p.getY() << ") ";
-}
-
-
-void triangleOutput(std::ostream& s, Triangle& t) {
-    output(std::cout, t.getA());
-    std::cout << ' ';
-    output(std::cout, t.getB());
-    std::cout << ' ';
-    output(std::cout, t.getC());
-}
-
-
-bool isEqualSquare(Triangle& t1, Triangle& t2) {
-    return (t1.Square() == t2.Square());
-}
+bool isEqualSquare(Triangle& t1, Triangle& t2);
 
 
 int main()
@@ -109,4 +87,37 @@ int main()
     t2.isTriangle();
     t3.isTriangle();
     return 0;
+}
+
+
+bool isPointInCircle(double r, const Point& p) {
+    return r >= sqrt(p.getX() * p.getX() + p.getY() * p.getY());
+}
+
+
+Point input(std::istream& s) {
+    double x, y;
+    s >> x;
+    s >> y;
+    Point p(x, y);
+    return p;
+}
+
+
+void output(std::ostream& s, const Point& p) {
+    s << "(" << p.getX() << "; " << p.getY() << ") ";
+}
+
+
+void triangleOutput(std::ostream& s, Triangle& t) {
+    output(std::cout, t.getA());
+    std::cout << ' ';
+    output(std::cout, t.getB());
+    std::cout << ' ';
+    output(std::cout, t.getC());
+}
+
+
+bool isEqualSquare(Triangle& t1, Triangle& t2) {
+    return (t1.Square() == t2.Square());
 }
