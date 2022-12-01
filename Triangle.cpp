@@ -34,5 +34,7 @@ double Triangle::getPerimeter() {
 }
 
 bool Triangle::isEqual(Triangle& t) {
-    return (a_.isEqual(t.getA())) && b_.isEqual(t.getB()) && c_.isEqual(t.getC());
+    return (a_.isEqual(t.getA()) && b_.isEqual(t.getB()) && c_.isEqual(t.getC())) || (a_.isEqual(t.getA()) && b_.isEqual(t.getC()) && c_.isEqual(t.getB())) ||
+           (a_.isEqual(t.getB()) && b_.isEqual(t.getC()) && c_.isEqual(t.getA())) || (a_.isEqual(t.getB()) && b_.isEqual(t.getA()) && c_.isEqual(t.getC())) ||
+           (a_.isEqual(t.getC()) && b_.isEqual(t.getA()) && c_.isEqual(t.getA())) || (a_.isEqual(t.getC()) && b_.isEqual(t.getB()) && c_.isEqual(t.getA()));
 }

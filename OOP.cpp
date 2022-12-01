@@ -72,7 +72,7 @@ int main()
     std::cout << "Is equal with (5; 5)? Result: " << resP.isEqual(testP) << '\n';
     std::cout << "Distance to (5; 5): " << resP.getDistance(testP) << '\n';
     resP.move(7);
-    std::cout << "Cords after moving: "; output(std::cout, resP); std::cout << "\n\n";
+    std::cout << "Cords after moving (+7): "; output(std::cout, resP); std::cout << "\n\n";
     
 
     resP.~Point();

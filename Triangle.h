@@ -1,4 +1,6 @@
-#pragma once
+#ifndef TRIANGLE_H
+#define TRIANGLE_H
+
 #include "Point.h"
 
 class Triangle
@@ -28,3 +30,4 @@ public:
 private:
 	Point a_, b_, c_;
 };
+#endif

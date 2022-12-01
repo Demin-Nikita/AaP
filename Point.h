@@ -1,4 +1,5 @@
-#pragma once
+#ifndef POINT_H
+#define POINT_H
 class Point
 {
 	public:
@@ -19,3 +20,4 @@ class Point
 	private:
 	    double x_, y_;
 };
+#endif
