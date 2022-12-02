@@ -5,13 +5,13 @@
 
 bool isPointInCircle(double r, const Point& p);
 
-Point input(std::istream& s);
+void input(std::istream& s, Point& p);
 
 void output(std::ostream& s, const Point& p);
 
-void triangleOutput(std::ostream& s, Triangle& t);
+void triangleOutput(std::ostream& s, const Triangle& t);
 
-bool isEqualSquare(Triangle& t1, Triangle& t2);
+bool isEqualSquare(const Triangle& t1, const Triangle& t2);
 
 
 int main()
@@ -22,7 +22,7 @@ int main()
     Point p(1, 1), p0(0, 0), resP, testP(5, 5);
 
     while (true) {
-        p = input(std::cin);
+        input(std::cin, p);
         
         try {
             if (!std::cin || std::cin.peek() != '\n') {
@@ -43,16 +43,15 @@ int main()
             mn = dist;
             resP = p;
         }
-
-        p.~Point();
     }
+
     std::cout << "Nearest to (0, 0): ";  output(std::cout, resP); std::cout << '\n';
     std::cout << "Is equal with (5; 5)? Result: " << resP.isEqual(testP) << '\n';
     std::cout << "Distance to (5; 5): " << resP.getDistance(testP) << '\n';
     resP.move(7);
     std::cout << "Cords after moving (+7): "; output(std::cout, resP); std::cout << "\n\n";
-    
 
+    p.~Point();
     resP.~Point();
     p0.~Point();
     testP.~Point();
@@ -83,9 +82,9 @@ int main()
     std::cout << "Is equal square of t1 and square of t2? Result: " << isEqualSquare(t1, t2) << '\n';
     std::cout << "Is equal square of t1 and square of t3? Result: " << isEqualSquare(t1, t3) << "\n\n";
     
-    t1.isTriangle();
-    t2.isTriangle();
-    t3.isTriangle();
+    t1.~Triangle();
+    t2.~Triangle();
+    t3.~Triangle();
     return 0;
 }
 
@@ -95,12 +94,10 @@ bool isPointInCircle(double r, const Point& p) {
 }
 
 
-Point input(std::istream& s) {
+void input(std::istream& s, Point& p) {
     double x, y;
-    s >> x;
-    s >> y;
-    Point p(x, y);
-    return p;
+    s >> x; p.setX(x);
+    s >> y; p.setY(y);
 }
 
 
@@ -109,7 +106,7 @@ void output(std::ostream& s, const Point& p) {
 }
 
 
-void triangleOutput(std::ostream& s, Triangle& t) {
+void triangleOutput(std::ostream& s, const Triangle& t) {
     output(std::cout, t.getA());
     std::cout << ' ';
     output(std::cout, t.getB());
@@ -118,6 +115,6 @@ void triangleOutput(std::ostream& s, Triangle& t) {
 }
 
 
-bool isEqualSquare(Triangle& t1, Triangle& t2) {
+bool isEqualSquare(const Triangle& t1, const Triangle& t2) {
     return (t1.Square() == t2.Square());
 }

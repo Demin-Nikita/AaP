@@ -18,7 +18,7 @@ public:
 	Point getB() const;
 	Point getC() const;
 
-	double Square();
+	double Square() const;
 		
 	bool isTriangle();
 		

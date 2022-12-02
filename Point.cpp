@@ -16,9 +16,11 @@ void Point::move(double k) {
 	this->setX(this->getX() + k);
 	this->setY(this->getY() + k);
 }
+
 bool Point::isEqual(const Point& p) {
 	return (this->getX() == p.getX()) && (this->getY() == p.getY());
 }
+
 double Point::getDistance(const Point& p) {
 	return sqrt((p.getX() - this->getX()) * (p.getX() - this->getX()) +
 	            (p.getY() - this->getY()) * (p.getY() - this->getY()));

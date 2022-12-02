@@ -6,14 +6,14 @@ Triangle::Triangle(Point a, Point b, Point c) : a_(a), b_(b), c_(c) {}
 Triangle::Triangle(const Triangle& t) : a_(t.a_), b_(t.b_), c_(t.c_) {}
 Triangle::~Triangle() = default;
 
-void Triangle::setA(Point a) { a_ = a; }
-void Triangle::setB(Point b) { b_ = b; }
-void Triangle::setC(Point c) { c_ = c; }
+void Triangle::setA(Point a) { a_.setX(a.getX()); a_.setY(a.getY()); }
+void Triangle::setB(Point b) { b_.setX(b.getX()); b_.setY(b.getY()); }
+void Triangle::setC(Point c) { c_.setX(c.getX()); c_.setY(c.getY()); }
 Point Triangle::getA() const { return a_; }
 Point Triangle::getB() const { return b_; }
 Point Triangle::getC() const { return c_; }
 
-double Triangle::Square() {
+double Triangle::Square() const {
     return 0.5 * abs(a_.getX() * (b_.getY() - c_.getY()) +
                      b_.getX() * (c_.getY() - a_.getY()) +
                      c_.getX() * (a_.getY() - b_.getY()));
